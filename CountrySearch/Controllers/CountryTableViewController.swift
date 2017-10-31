@@ -13,13 +13,36 @@ class CountryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      getCountriesFromAPI()
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
+  
+  func getCountriesFromAPI() {
+    let url = URL(string: "https://restcountries.eu/rest/v2/all")!
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+      if let error = error {
+        DispatchQueue.main.async {
+          // Make UI error change
+          print(error.localizedDescription)
+          }
+        return
+      }
+      let data = data!
+      guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+        DispatchQueue.main.async {
+          // Make UI Change update Server error
+          print(data.base64EncodedString())
+          
+        }
+        return
+      }
+    }
+    task.resume()
+    print("Session Success")
   }
+  
 
     // MARK: - Table view data source
 
