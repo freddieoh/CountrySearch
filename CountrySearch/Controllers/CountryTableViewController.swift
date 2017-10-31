@@ -29,6 +29,7 @@ class CountryTableViewController: UITableViewController {
           }
         return
       }
+      
       let data = data!
       guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
         DispatchQueue.main.async {
