@@ -46,7 +46,7 @@ extension Country {
       let french = translationsJSON["fr"],
       let japanese = translationsJSON["ja"]
     else {
-      throw SerializationError.missing("translations")
+      throw SerializationError.missing("translation")
     }
     
     let translations = (french, japanese)
@@ -66,13 +66,13 @@ extension Country {
       
       currencies.insert(currency)
     }
+    
     self.name = name
     self.capital = capital
     self.flag = flag
     self.translation = translations
     self.currencies = currencies
   
-    
   }
   
   

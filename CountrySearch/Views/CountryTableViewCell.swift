@@ -17,12 +17,12 @@ class CountryTableViewCell: UITableViewCell {
   @IBOutlet weak var languageLabel: UILabel!
   @IBOutlet weak var currencyLabel: UILabel!
   @IBOutlet weak var capitalLabel: UILabel!
-  
+  @IBOutlet weak var japaneseTranslationLabel: UILabel!
+  @IBOutlet weak var frenchTranslationLabel: UILabel!
+  @IBOutlet weak var countryFlagImageView: UIImageView!
   
   override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    
     
     }
 

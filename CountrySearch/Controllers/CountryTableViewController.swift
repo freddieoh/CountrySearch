@@ -10,15 +10,12 @@ import UIKit
 
 class CountryTableViewController: UITableViewController {
   
-
     override func viewDidLoad() {
         super.viewDidLoad()
       
       getCountriesFromAPI()
-
     }
 
-  
   func getCountriesFromAPI() {
     let url = URL(string: "https://restcountries.eu/rest/v2/all")!
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -44,7 +41,6 @@ class CountryTableViewController: UITableViewController {
     print("Session Success")
   }
   
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,17 +53,13 @@ class CountryTableViewController: UITableViewController {
 
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.register(UINib(nibName: "CountryTableViewCell", bundle: nil), forCellReuseIdentifier: "CountryCell")
+        tableView.separatorStyle = .none
     
-     tableView.register(UINib(nibName: "CountryTableViewCell", bundle: nil), forCellReuseIdentifier: "CountryCell")
- 
-      tableView.separatorStyle = .none
-      
-      let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as! CountryTableViewCell
-     
- 
-     
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as! CountryTableViewCell
+    
         return cell
-    }
+  }
 
     
 }
