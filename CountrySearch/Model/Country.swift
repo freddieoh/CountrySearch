@@ -75,5 +75,13 @@ extension Country {
   
   }
   
+  static let basePath = "https://restcountries.eu/rest/v2/name/"
+  
+  static func countryDetail(withName name: String, completion: @escaping ([Country]) -> ()) {
+    
+    
+    
+  }
+  
   
 }

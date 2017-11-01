@@ -10,6 +10,10 @@ import UIKit
 
 class CountryTableViewController: UITableViewController {
   
+  let manager = APIManager.getCountries { (items) in
+    print(items)
+  }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -19,6 +23,7 @@ class CountryTableViewController: UITableViewController {
   func getCountriesFromAPI() {
     let url = URL(string: "https://restcountries.eu/rest/v2/all")!
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+  
       if let error = error {
         DispatchQueue.main.async {
           // Make UI error change
@@ -26,8 +31,23 @@ class CountryTableViewController: UITableViewController {
           }
         return
       }
-      
       let data = data!
+     let dictionaries = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+      
+      for dictionary in dictionaries {
+        
+        
+        guard let name = dictionary["name"] as? String else {
+          return
+        }
+        
+        print(name)
+        
+      }
+      
+     
+  
+
       guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
         DispatchQueue.main.async {
           // Make UI Change update Server error
