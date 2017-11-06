@@ -77,7 +77,7 @@
                 <outlet property="japaneseTranslationLabel" destination="foT-yx-QoD" id="bQz-tl-n4X"/>
                 <outlet property="languageLabel" destination="qdh-AY-lGK" id="EDt-hm-TwP"/>
             </connections>
-            <point key="canvasLocation" x="-61" y="9.5"/>
+            <point key="canvasLocation" x="-271" y="-28"/>
         </tableViewCell>
     </objects>
 </document>

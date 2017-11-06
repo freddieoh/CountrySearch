@@ -31,23 +31,16 @@ class CountryTableViewController: UITableViewController {
           }
         return
       }
-      let data = data!
-     let dictionaries = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+    let data = data!
+     let jsonDictionaries = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
       
-      for dictionary in dictionaries {
-        
-        
-        guard let name = dictionary["name"] as? String else {
-          return
+      for jsonObject in jsonDictionaries {
+        guard let countryName = jsonObject["name"] as? String else {
+        return
         }
-        
-        print(name)
+        print(countryName)
         
       }
-      
-     
-  
-
       guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
         DispatchQueue.main.async {
           // Make UI Change update Server error
