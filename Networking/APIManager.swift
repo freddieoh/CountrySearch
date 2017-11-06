@@ -13,7 +13,7 @@ class APIManager {
   
   static func getCountries(completion: @escaping (_ data:[String])
     -> Void) {
-    let url = URL(string: "https://restcountries.eu/rest/v2/all")!
+    guard let url = URL(string: "https://restcountries.eu/rest/v2/all" ) else { return }
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
       if let error = error {
         DispatchQueue.main.async {
@@ -23,22 +23,17 @@ class APIManager {
         return
       }
       
-      let data = data!
-      
-      
+      guard let data = data else { return }
       guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
         DispatchQueue.main.async {
           // Make UI Change update Server error
           print(data.base64EncodedString())
-          
         }
         return
       }
     }
     task.resume()
-    print("Session Success MANAGER")
+    print("MANAGER SESSION SUCCESS")
   }
-  
-  
-  
+
 }

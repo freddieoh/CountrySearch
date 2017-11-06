@@ -26,6 +26,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="V8O-nu-qv4" id="Y5B-h2-O0W"/>
                             <outlet property="delegate" destination="V8O-nu-qv4" id="F9E-Ar-iEY"/>
