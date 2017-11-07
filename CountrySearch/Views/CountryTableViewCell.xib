@@ -32,13 +32,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdh-AY-lGK">
-                        <rect key="frame" x="226" y="100" width="76" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Capital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKD-St-5Ux">
                         <rect key="frame" x="226" y="48" width="54" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -75,7 +68,6 @@
                 <outlet property="currencyLabel" destination="Bxn-h2-jRN" id="Zoj-89-7we"/>
                 <outlet property="frenchTranslationLabel" destination="U90-5g-sKH" id="Zu5-6U-pZc"/>
                 <outlet property="japaneseTranslationLabel" destination="foT-yx-QoD" id="bQz-tl-n4X"/>
-                <outlet property="languageLabel" destination="qdh-AY-lGK" id="EDt-hm-TwP"/>
             </connections>
             <point key="canvasLocation" x="-455" y="-98"/>
         </tableViewCell>
