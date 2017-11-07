@@ -9,15 +9,13 @@
 import Foundation
 
 struct Country {
-  enum Currency: String {
-    case code, name, symbol
-  }
+
   
   let name: String
   let capital: String
   let flag: String
   let translation: (french: String, japanese: String)
-  let currencies: Set<Currency>
+  let currencies: [Currency]
 
 }
 
@@ -48,24 +46,27 @@ extension Country {
     else {
       throw SerializationError.missing("translation")
     }
-    
+
     let translations = (french, japanese)
-    guard case ("french", "japanese") = translations else {
-      throw SerializationError.invalid("translations", translations)
+
+    
+//    guard let currenciesJSON = json["currencies"] as? [[String:String]] else {
+//      throw SerializationError.missing("currencies")
+//    }
+    
+    guard let currenciesJSON = json["currencies"] as? [[String: String]],
+      let firstCurrency = currenciesJSON.first,
+      let code = firstCurrency["code"],
+      let symbol = firstCurrency["symbol"],
+      let currencyName = firstCurrency["name"]
+      else {
+        throw SerializationError.missing("currencies")
     }
     
-    guard let currenciesJSON = json["currencies"] as? [String] else {
-      throw SerializationError.missing("currencies")
-    }
+    var currencies: [Currency] = []
+    currencies.append(Currency(_code: code, _name: currencyName, _symbol: symbol))
     
-    var currencies: Set<Currency> = []
-    for string in currenciesJSON {
-      guard let currency = Currency(rawValue: string) else {
-        throw SerializationError.invalid("currency", string)
-      }
-      
-      currencies.insert(currency)
-    }
+
     
     self.name = name
     self.capital = capital

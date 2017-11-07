@@ -17,6 +17,7 @@
 		1F81E2C11FA7B5110019535C /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81E2BF1FA7B5110019535C /* CountryTableViewController.swift */; };
 		1F81E2C51FA7B5C80019535C /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81E2C31FA7B5C80019535C /* CountryTableViewCell.swift */; };
 		1F81E2C61FA7B5C80019535C /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F81E2C41FA7B5C80019535C /* CountryTableViewCell.xib */; };
+		1FF9F2DF1FB16FF300093E61 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF9F2DE1FB16FF300093E61 /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		1F81E2BF1FA7B5110019535C /* CountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
 		1F81E2C31FA7B5C80019535C /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		1F81E2C41FA7B5C80019535C /* CountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryTableViewCell.xib; sourceTree = "<group>"; };
+		1FF9F2DE1FB16FF300093E61 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				1F81E2BD1FA7B23B0019535C /* Country.swift */,
+				1FF9F2DE1FB16FF300093E61 /* Currency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FF9F2DF1FB16FF300093E61 /* Currency.swift in Sources */,
 				1F81E2C51FA7B5C80019535C /* CountryTableViewCell.swift in Sources */,
 				1F81E2BE1FA7B23B0019535C /* Country.swift in Sources */,
 				1F1C9D881FA905FA00454FCE /* APIManager.swift in Sources */,

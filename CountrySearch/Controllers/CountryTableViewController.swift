@@ -10,7 +10,7 @@ import UIKit
 
 class CountryTableViewController: UITableViewController {
   
-  let countries: [Country] = []
+  var countries: [Country] = []
   
 //  let manager = APIManager.getCountries { (items) in
 //    print(items)
@@ -29,7 +29,7 @@ class CountryTableViewController: UITableViewController {
 
   func getCountriesFromAPI() {
     
-    let countriesURL = "https://restcountries.eu/rest/v2/all"
+    let countriesURL = "https://restcountries.eu/rest/v2/name/nigeria"
     guard let url = URL(string: countriesURL ) else { return }
     let session = URLSession.shared
     let task = session.dataTask(with: url) { (data, response, error) in
@@ -42,14 +42,20 @@ class CountryTableViewController: UITableViewController {
       }
   
       guard let data = data else { return }
-      let jsonDictionaries = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-      
-      for jsonObject in jsonDictionaries {
-        guard let countryName = jsonObject["name"] as? String else {
+      let jsonDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+    
+      for dict in jsonDictionary {
+        guard let countryName = dict["name"] as? String else {
         return
         }
+        
+        let country = try! Country(json: dict)
+        self.countries.append(country)
         print(countryName)
+        
       }
+      
+     
       
       guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
         DispatchQueue.main.async {
@@ -69,14 +75,21 @@ class CountryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.separatorStyle = .none
+      
     
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as!CountryTableViewCell
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as! CountryTableViewCell
+        cell.selectionStyle = .none
+      
+      cell.countryNameLabel.text = countries[indexPath.row].name
+      cell.capitalLabel.text = countries[indexPath.row].capital
+      cell.currencyLabel.text = countries[indexPath.row].currencies.first?.code
+      
+      
+      
         return cell
   }
   
